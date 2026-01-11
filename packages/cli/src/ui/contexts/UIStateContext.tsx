@@ -66,6 +66,9 @@ export interface UIState {
   isProviderModelDialogOpen: boolean;
   isLoadProfileDialogOpen: boolean;
   isCreateProfileDialogOpen: boolean;
+  isProfileListDialogOpen: boolean;
+  isProfileDetailDialogOpen: boolean;
+  isProfileEditorDialogOpen: boolean;
   isToolsDialogOpen: boolean;
   isFolderTrustDialogOpen: boolean;
   showWorkspaceMigrationDialog: boolean;
@@ -85,6 +88,22 @@ export interface UIState {
   toolsDialogDisabledTools: string[];
   workspaceGeminiCLIExtensions: GeminiCLIExtension[];
   loggingDialogData: { entries: unknown[] };
+
+  // Profile management dialog data
+  profileListItems: Array<{
+    name: string;
+    type: 'standard' | 'loadbalancer';
+    provider?: string;
+    model?: string;
+    isDefault?: boolean;
+    isActive?: boolean;
+  }>;
+  selectedProfileName: string | null;
+  selectedProfileData: unknown | null;
+  defaultProfileName: string | null;
+  activeProfileName: string | null;
+  profileDialogError: string | null;
+  profileDialogLoading: boolean;
 
   // Confirmation requests
   shellConfirmationRequest: ShellConfirmationRequest | null;

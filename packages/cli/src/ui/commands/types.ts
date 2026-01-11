@@ -140,6 +140,9 @@ export interface OpenDialogActionReturn {
     | 'provider'
     | 'loadProfile'
     | 'createProfile'
+    | 'profileList'
+    | 'profileDetail'
+    | 'profileEditor'
     | 'saveProfile';
   dialogData?: unknown;
 }
